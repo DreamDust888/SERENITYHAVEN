@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guest Portal | Serenity Haven Resort</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  
+  <style>
+    header {
+      background-color: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+    }
+    .logo, nav a {
+      color: var(--color-charcoal) !important;
+    }
+    nav a::after {
+      background: var(--color-gold) !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="container nav-container" style="height: 70px;">
+      <a href="index.html" class="logo" aria-label="Serenity Haven Home">SERENITY<span>HAVEN</span></a>
+      <nav aria-label="Main Navigation">
+        <a href="index.html#hero">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#rooms">Rooms</a>
+        <a href="index.html#dining">Dining</a>
+        <a href="index.html#experiences">Experiences</a>
+        <a href="index.html#gallery">Gallery</a>
+        <a href="index.html#reviews">Reviews</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="booking.html" class="btn btn-outline" style="padding: 0.5rem 1.25rem; margin-left: 10px;">Book Now</a>
+      </nav>
+      <button class="menu-btn" id="mobile-menu-toggle" aria-label="Toggle navigation">
+        <span class="menu-btn-burger" style="background-color: var(--color-charcoal);"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Dashboard Grid -->
+  <div class="dashboard-container">
+    
+    <!-- Sidebar -->
+    <aside class="db-sidebar" aria-label="Guest Panel Sidebar">
+      <div style="text-align: center; padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--color-border-light); margin-bottom: var(--spacing-sm);">
+        <div style="width: 70px; height: 70px; border-radius: var(--radius-full); margin: 0 auto 10px; overflow: hidden; border: 2px solid var(--color-gold);">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Andrew Bennett Profile" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <h3 style="color: var(--color-warm-white); font-family: var(--font-sans); font-weight: 700; font-size: 1.05rem;" id="user-display-name">Andrew Bennett</h3>
+        <span style="font-size: 0.75rem; color: var(--color-gold); font-weight: 600; text-transform: uppercase;">VIP Guest Tier</span>
+      </div>
+
+      <ul class="db-menu">
+        <li class="db-menu-item active" data-tab="overview">
+          <button type="button">
+            <!-- Overview Icon -->
+            <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            Overview
+          </button>
+        </li>
+        
+        <li class="db-menu-item" data-tab="bookings">
+          <button type="button">
+            <!-- Calendar Icon -->
+            <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+            My Bookings
+          </button>
+        </li>
+
+        <li class="db-menu-item" data-tab="wishlist">
+          <button type="button">
+            <!-- Heart Icon -->
+            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            Wishlist
+          </button>
+        </li>
+
+        <li class="db-menu-item" data-tab="cotravelers">
+          <button type="button">
+            <!-- Group Icon -->
+            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V20h14v-3.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V20h6v-3.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+            Saved Guests
+          </button>
+        </li>
+
+        <li class="db-menu-item" data-tab="profile">
+          <button type="button">
+            <!-- Settings Icon -->
+            <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+            Profile Settings
+          </button>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="db-main" aria-label="Customer Dashboard Panels">
+      
+      <!-- OVERVIEW PANEL -->
+      <section class="tab-panel active" data-tab="overview">
+        <div class="db-header">
+          <div class="db-title">
+            <h2>Welcome Back, Andrew</h2>
+            <p>Here is a summary of your upcoming coastal retreats.</p>
+          </div>
+        </div>
+
+        <!-- Metrics cards -->
+        <div class="db-metrics-grid">
+          <div class="metric-tile">
+            <span class="metric-tile-title">Days to Next Stay</span>
+            <span class="metric-tile-value" id="stat-days-countdown">1</span>
+            <span style="font-size:0.8rem; color:var(--color-text-muted);">Check-in: Tomorrow</span>
+          </div>
+          <div class="metric-tile">
+            <span class="metric-tile-title">Loyalty Points</span>
+            <span class="metric-tile-value">12,450</span>
+            <span style="font-size:0.8rem; color:var(--color-emerald); font-weight:600;">Gold Tier unlocked</span>
+          </div>
+          <div class="metric-tile">
+            <span class="metric-tile-title">Total Nights Stayed</span>
+            <span class="metric-tile-value" id="stat-total-nights">14</span>
+            <span style="font-size:0.8rem; color:var(--color-text-muted);">Across 3 past trips</span>
+          </div>
+        </div>
+
+        <!-- Next Stay Highlights -->
+        <div class="chart-card" style="margin-bottom: var(--spacing-lg);">
+          <h3 class="chart-title">Your Next Stay Details</h3>
+          <div class="grid-2" style="align-items: center;" id="upcoming-stay-highlight-box">
+            <!-- Loaded dynamically with booking data or defaults -->
+            <p>No active bookings found. <a href="booking.html" style="color:var(--color-gold); font-weight:600;">Reserve a Haven now &rarr;</a></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MY BOOKINGS PANEL -->
+      <section class="tab-panel" data-tab="bookings">
+        <div class="db-header">
+          <div class="db-title">
+            <h2>My Reservations</h2>
+            <p>Manage active blocks and view your invoice files.</p>
+          </div>
+        </div>
+
+        <div class="db-table-wrapper">
+          <table class="db-table">
+            <thead>
+              <tr>
+                <th>Booking ID</th>
+                <th>Room Type</th>
+                <th>Dates</th>
+                <th>Grand Total</th>
+                <th>Status</th>
+                <th style="text-align: right;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="bookings-list-table-body">
+              <!-- Loaded dynamically by customer.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- WISHLIST PANEL -->
+      <section class="tab-panel" data-tab="wishlist">
+        <div class="db-header">
+          <div class="db-title">
+            <h2>My Wishlist</h2>
+            <p>Your saved rooms and cottages ready for future bookings.</p>
+          </div>
+        </div>
+
+        <div class="wishlist-grid" id="wishlist-rooms-container">
+          <!-- Loaded dynamically by customer.js -->
+        </div>
+      </section>
+
+      <!-- CO-TRAVELERS PANEL -->
+      <section class="tab-panel" data-tab="cotravelers">
+        <div class="db-header">
+          <div class="db-title">
+            <h2>Saved Guests Registry</h2>
+            <p>Speed up checkout by saving details for your co-travelers.</p>
+          </div>
+        </div>
+
+        <div class="grid-2" style="align-items: start;">
+          <div class="chart-card">
+            <h3 class="chart-title">Add Saved Guest</h3>
+            <form id="add-guest-form">
+              <div class="form-group">
+                <label for="cotrav-name" class="form-label">Full Name</label>
+                <input type="text" id="cotrav-name" class="form-control" placeholder="Clara Bennett" required>
+              </div>
+              <div class="form-group">
+                <label for="cotrav-rel" class="form-label">Relationship</label>
+                <select id="cotrav-rel" class="form-control">
+                  <option value="Spouse">Spouse</option>
+                  <option value="Child">Child</option>
+                  <option value="Parent">Parent</option>
+                  <option value="Friend">Friend / Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="cotrav-passport" class="form-label">Passport / ID Number (Optional)</label>
+                <input type="text" id="cotrav-passport" class="form-control" placeholder="A12345678">
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Add to Registry</button>
+            </form>
+          </div>
+
+          <div class="chart-card">
+            <h3 class="chart-title">Saved Co-Travelers</h3>
+            <div id="cotravelers-list-container" style="display:flex; flex-direction:column; gap: var(--spacing-sm);">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROFILE PANEL -->
+      <section class="tab-panel" data-tab="profile">
+        <div class="db-header">
+          <div class="db-title">
+            <h2>Profile Settings</h2>
+            <p>Update your personal details and authentication controls.</p>
+          </div>
+        </div>
+
+        <div class="chart-card" style="max-width: 600px;">
+          <form id="profile-settings-form">
+            <div class="form-group">
+              <label for="prof-name" class="form-label">Full Name</label>
+              <input type="text" id="prof-name" class="form-control" value="Andrew Bennett" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="prof-email" class="form-label">Email Address</label>
+              <input type="email" id="prof-email" class="form-control" value="andrew@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="prof-phone" class="form-label">Mobile Number</label>
+              <input type="tel" id="prof-phone" class="form-control" value="+1 (555) 0199" required>
+            </div>
+
+            <div class="form-group">
+              <label for="prof-address" class="form-label">Postal Address</label>
+              <input type="text" id="prof-address" class="form-control" value="45 Baker Street, London, UK">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Profile Changes</button>
+          </form>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Booking Invoice Popup Modal -->
+  <div class="modal-overlay" id="invoice-modal">
+    <div class="modal-content" style="max-width: 800px;">
+      <div class="modal-header no-print">
+        <h3>Invoice Details</h3>
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <!-- Renders Step 4 invoice template here -->
+        <div id="invoice-modal-content-area"></div>
+        <div style="display:flex; justify-content: flex-end; gap: var(--spacing-sm); margin-top: var(--spacing-md);" class="no-print">
+          <button class="btn btn-outline" onclick="window.print()">Print Statement</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/components.js"></script>
+  <script src="js/customer.js"></script>
+</body>
+</html>

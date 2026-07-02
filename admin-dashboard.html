@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resort Owner Panel | Serenity Haven Resort</title>
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  
+  <style>
+    header {
+      background-color: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+    }
+    .logo, nav a {
+      color: var(--color-charcoal) !important;
+    }
+    nav a::after {
+      background: var(--color-gold) !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="container nav-container" style="height: 70px;">
+      <a href="index.html" class="logo" aria-label="Serenity Haven Home">SERENITY<span>HAVEN</span></a>
+      <nav aria-label="Main Navigation">
+        <a href="index.html#hero">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#rooms">Rooms</a>
+        <a href="index.html#dining">Dining</a>
+        <a href="index.html#experiences">Experiences</a>
+        <a href="index.html#gallery">Gallery</a>
+        <a href="index.html#reviews">Reviews</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="booking.html" class="btn btn-outline" style="padding: 0.5rem 1.25rem; margin-left: 10px;">Book Now</a>
+      </nav>
+      <button class="menu-btn" id="mobile-menu-toggle" aria-label="Toggle navigation">
+        <span class="menu-btn-burger" style="background-color: var(--color-charcoal);"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Dashboard Container -->
+  <div class="dashboard-container">
+    
+    <!-- Sidebar navigation -->
+    <aside class="db-sidebar" aria-label="Owner Panel Sidebar">
+      <div style="padding: var(--spacing-xs) 0 var(--spacing-sm); border-bottom: 1px solid var(--color-border-light); margin-bottom: var(--spacing-sm);">
+        <h3 style="color: var(--color-warm-white); font-family: var(--font-sans); font-weight: 700; font-size: 1.1rem; letter-spacing: 0.05em; text-transform: uppercase;">Resort RMD System</h3>
+        <span style="font-size: 0.75rem; color: var(--color-gold); font-weight: 600;">Amalfi Admin Portal</span>
+      </div>
+
+      <ul class="db-menu">
+        <li class="db-menu-item active" data-tab="overview">
+          <button type="button">
+            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+            Dashboard
+          </button>
+        </li>
+        <li class="db-menu-item" data-tab="bookings">
+          <button type="button">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+            Bookings
+          </button>
+        </li>
+        <li class="db-menu-item" data-tab="calendar">
+          <button type="button">
+            <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+            Booking Calendar
+          </button>
+        </li>
+        <li class="db-menu-item" data-tab="rooms">
+          <button type="button">
+            <svg viewBox="0 0 24 24"><path d="M7 13h10v2H7zm0-3h10v2H7zm0-3h10v2H7z"/></svg>
+            Rooms Manager
+          </button>
+        </li>
+        <li class="db-menu-item" data-tab="pricing">
+          <button type="button">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+            Pricing Config
+          </button>
+        </li>
+        <li class="db-menu-item" data-tab="seasons">
+          <button type="button">
+            <svg viewBox="0 0 24 24"><path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg>
+            Seasonal Pricing
+          </button>
+        </li>
+        <li class="db-menu-item" data-tab="customers">
+          <button type="button">
+            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V20h14v-3.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V20h6v-3.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+            Customers CRM
+          </button>
+        </li>
+        <li class="db-menu-item" data-tab="coupons">
+          <button type="button">
+            <svg viewBox="0 0 24 24"><path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 8.25c-.97 0-1.75-.78-1.75-1.75s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.75-1.75 1.75z"/></svg>
+            Coupons Builder
+          </button>
+        </li>
+        <li class="db-menu-item" data-tab="settings">
+          <button type="button">
+            <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+            Settings
+          </button>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="db-main" aria-label="Owner Panel Panels">
+      
+      <!-- OVERVIEW DASHBOARD PANEL -->
+      <section class="tab-panel active" data-tab="overview">
+        <div class="db-header">
+          <div class="db-title">
+            <h2>Resort Analytics Overview</h2>
+            <p>Direct tracking metrics from front desk and billing operations.</p>
+          </div>
+        </div>
+
+        <!-- 8 KPIs grid -->
+        <div class="db-metrics-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+          <div class="metric-tile">
+            <span class="metric-tile-title">Total Revenue</span>
+            <span class="metric-tile-value" id="kpi-revenue">$42,910</span>
+            <span class="metric-tile-trend up">▲ 14.2% MoM</span>
+          </div>
+          <div class="metric-tile">
+            <span class="metric-tile-title">Occupancy Rate</span>
+            <span class="metric-tile-value" id="kpi-occupancy">76.4%</span>
+            <span class="metric-tile-trend up">▲ 5.1% vs last year</span>
+          </div>
+          <div class="metric-tile">
+            <span class="metric-tile-title">ADR (Average Daily Rate)</span>
+            <span class="metric-tile-value" id="kpi-adr">$685.00</span>
+            <span class="metric-tile-trend up">▲ $40 vs last week</span>
+          </div>
+          <div class="metric-tile">
+            <span class="metric-tile-title">RevPAR</span>
+            <span class="metric-tile-value" id="kpi-revpar">$523.34</span>
+            <span class="metric-tile-trend up">▲ 8.3% MoM</span>
+          </div>
+          <div class="metric-tile">
+            <span class="metric-tile-title">Total Stays Reserved</span>
+            <span class="metric-tile-value" id="kpi-stays">64</span>
+            <span class="metric-tile-trend up">▲ 12.0% MoM</span>
+          </div>
+          <div class="metric-tile">
+            <span class="metric-tile-title">Repeat Guests Rate</span>
+            <span class="metric-tile-value">32.8%</span>
+            <span class="metric-tile-trend up">▲ 2.5% MoM</span>
+          </div>
+          <div class="metric-tile">
+            <span class="metric-tile-title">Cancellation Rate</span>
+            <span class="metric-tile-value">4.2%</span>
+            <span class="metric-tile-trend down">▼ 0.8% MoM</span>
+          </div>
+          <div class="metric-tile">
+            <span class="metric-tile-title">Room Popularity Index</span>
+            <span class="metric-tile-value" style="font-size:1.6rem; padding: 4px 0;">Premium Suite</span>
+            <span style="font-size:0.8rem; color:var(--color-text-muted);">98% bookings rate</span>
+          </div>
+        </div>
+
+        <!-- Analytical Charts -->
+        <div class="charts-grid">
+          <div class="chart-card">
+            <h3 class="chart-title">Revenue Projections & Trends</h3>
+            <!-- Clean SVG Line Chart -->
+            <svg viewBox="0 0 500 220" style="width: 100%; height: auto;" aria-label="Line graph representing monthly revenues">
+              <!-- Gridlines -->
+              <line x1="40" y1="180" x2="480" y2="180" stroke="var(--color-border)" stroke-width="1" />
+              <line x1="40" y1="130" x2="480" y2="130" stroke="var(--color-border)" stroke-width="1" stroke-dasharray="4,4" />
+              <line x1="40" y1="80" x2="480" y2="80" stroke="var(--color-border)" stroke-width="1" stroke-dasharray="4,4" />
+              <line x1="40" y1="30" x2="480" y2="30" stroke="var(--color-border)" stroke-width="1" stroke-dasharray="4,4" />
+              
+              <!-- Trend Line -->
+              <path d="M40 160 Q 150 110, 260 120 T 480 40" fill="none" stroke="var(--color-gold)" stroke-width="3" />
+              
+              <!-- Nodes -->
+              <circle cx="40" cy="160" r="4" fill="var(--color-deep-navy)" stroke="var(--color-gold)" stroke-width="2" />
+              <circle cx="150" cy="125" r="4" fill="var(--color-deep-navy)" stroke="var(--color-gold)" stroke-width="2" />
+              <circle cx="260" cy="120" r="4" fill="var(--color-deep-navy)" stroke="var(--color-gold)" stroke-width="2" />
+              <circle cx="370" cy="90" r="4" fill="var(--color-deep-navy)" stroke="var(--color-gold)" stroke-width="2" />
+              <circle cx="480" cy="40" r="4" fill="var(--color-deep-navy)" stroke="var(--color-gold)" stroke-width="2" />
+              
+              <!-- Axis texts -->
+              <text x="35" y="198" font-size="9" font-family="var(--font-sans)" fill="var(--color-text-muted)">Jan</text>
+              <text x="145" y="198" font-size="9" font-family="var(--font-sans)" fill="var(--color-text-muted)">Feb</text>
+              <text x="255" y="198" font-size="9" font-family="var(--font-sans)" fill="var(--color-text-muted)">Mar</text>
+              <text x="365" y="198" font-size="9" font-family="var(--font-sans)" fill="var(--color-text-muted)">Apr</text>
+              <text x="475" y="198" font-size="9" font-family="var(--font-sans)" fill="var(--color-text-muted)">May</text>
+            </svg>
+          </div>
+          
+          <div class="chart-card">
+            <h3 class="chart-title">Booking Channels</h3>
+            <!-- Clean SVG Pie/Donut Chart -->
+            <svg viewBox="0 0 200 200" style="width: 100%; height: auto;" aria-label="Donut graph representing booking streams">
+              <circle cx="100" cy="100" r="70" fill="none" stroke="var(--color-sand)" stroke-width="20" />
+              <circle cx="100" cy="100" r="70" fill="none" stroke="var(--color-gold)" stroke-width="20" stroke-dasharray="220 440" stroke-dashoffset="0" />
+              <circle cx="100" cy="100" r="70" fill="none" stroke="var(--color-emerald)" stroke-width="20" stroke-dasharray="120 440" stroke-dashoffset="-220" />
+              <circle cx="100" cy="100" r="70" fill="none" stroke="var(--color-deep-navy)" stroke-width="20" stroke-dasharray="100 440" stroke-dashoffset="-340" />
+              
+              <text x="100" y="105" text-anchor="middle" font-family="var(--font-sans)" font-size="12" font-weight="700" fill="var(--color-charcoal)">Web Direct</text>
+            </svg>
+            <div style="font-size:0.75rem; margin-top:10px; display:flex; justify-content:space-between;">
+              <span><span style="color:var(--color-gold);">■</span> Direct (50%)</span>
+              <span><span style="color:var(--color-emerald);">■</span> OTAs (27%)</span>
+              <span><span style="color:var(--color-deep-navy);">■</span> Agent (23%)</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOOKINGS LIST MODULE -->
+      <section class="tab-panel" data-tab="bookings">
+        <div class="db-header">
+          <div class="db-title">
+            <h2>Stays Bookings Database</h2>
+            <p>Manage reservations, cleanups, check-in, and guest departures.</p>
+          </div>
+        </div>
+
+        <div class="db-table-wrapper">
+          <table class="db-table">
+            <thead>
+              <tr>
+                <th>Invoice ID</th>
+                <th>Guest Details</th>
+                <th>Room Class</th>
+                <th>Stay Dates</th>
+                <th>Bill Paid</th>
+                <th>Status</th>
+                <th style="text-align: right;">Action Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-bookings-table-body">
+              <!-- Loaded dynamically by admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- BOOKING CALENDAR CALENDAR -->
+      <section class="tab-panel" data-tab="calendar">
+        <div class="db-header">
+          <div class="db-title">
+            <h2>Occupancy Scheduling Grid</h2>
+            <p>Visual log of upcoming room occupancy for July 2026.</p>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <h3 class="chart-title">July 2026 Grid</h3>
+          <div class="scheduler-calendar" id="calendar-grid-container">
+            <!-- Rendered dynamically by admin.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ROOMS MANAGER MODULE -->
+      <section class="tab-panel" data-tab="rooms">
+        <div class="db-header">
+          <div class="db-title">
+            <h2>Room Inventory Manager</h2>
+            <p>Modify cleanliness codes and maintenance locks.</p>
+          </div>
+        </div>
+
+        <div class="db-table-wrapper">
+          <table class="db-table">
+            <thead>
+              <tr>
+                <th>Room #</th>
+                <th>Haven Type</th>
+                <th>Inventory Code</th>
+                <th>Housekeeping State</th>
+                <th>Reservation Status</th>
+                <th style="text-align: right;">Modify State</th>
+              </tr>
+            </thead>
+            <tbody id="admin-rooms-table-body">
+              <!-- Loaded dynamically by admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- PRICING CONFIG CONFIG -->
+      <section class="tab-panel" data-tab="pricing">
+        <div class="db-header">
+          <div class="db-title">
+            <h2>Room Nightly Rates Configurator</h2>
+            <p>Modify base night prices. Changes sync directly to customer bookings.</p>
+          </div>
+        </div>
+
+        <div class="chart-card" style="max-width: 600px;">
+          <h3 class="chart-title">Adjust Base Prices</h3>
+          <form id="admin-pricing-rates-form">
+            <!-- Input rows will render dynamically -->
+            <div id="pricing-fields-container"></div>
+            <button type="submit" class="btn btn-primary" style="margin-top: var(--spacing-sm);">Commit Adjustments</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- SEASONAL PRICING MULTIPLIERS -->
+      <section class="tab-panel" data-tab="seasons">
+        <div class="db-header">
+          <div class="db-title">
+            <h2>Seasonal Price Multipliers</h2>
+            <p>Set peak rates and markup timeline rules.</p>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="chart-card">
+            <h3 class="chart-title">Define Markup Rule</h3>
+            <form id="admin-season-rules-form">
+              <div class="form-group">
+                <label for="rule-name" class="form-label">Timeline Season Name</label>
+                <input type="text" id="rule-name" class="form-control" placeholder="Mid-Autumn Escape" required>
+              </div>
+              <div class="form-group">
+                <label for="rule-multiplier" class="form-label">Pricing Multiplier (e.g. 1.15 = +15%)</label>
+                <input type="number" step="0.05" id="rule-multiplier" class="form-control" value="1.10" required>
+              </div>
+              <div class="grid-2" style="gap: var(--spacing-xs);">
+                <div class="form-group">
+                  <label for="rule-start" class="form-label">Start Date</label>
+                  <input type="date" id="rule-start" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="rule-end" class="form-label">End Date</label>
+                  <input type="date" id="rule-end" class="form-control" required>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Create Timeline Rule</button>
+            </form>
+          </div>
+
+          <div class="chart-card">
+            <h3 class="chart-title">Active Season Mappings</h3>
+            <div id="active-season-rules-list" style="display:flex; flex-direction:column; gap: var(--spacing-sm);">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CUSTOMERS CRM MODULE -->
+      <section class="tab-panel" data-tab="customers">
+        <div class="db-header">
+          <div class="db-title">
+            <h2>Customers Directory (CRM)</h2>
+            <p>Audit traveler history profiles, preferences, and custom VIP notes.</p>
+          </div>
+        </div>
+
+        <div class="db-table-wrapper">
+          <table class="db-table">
+            <thead>
+              <tr>
+                <th>Customer Name</th>
+                <th>Contact</th>
+                <th>Member Tier</th>
+                <th>Total Stays</th>
+                <th>Lifetime Spend</th>
+                <th>Internal VIP Notes</th>
+              </tr>
+            </thead>
+            <tbody id="admin-crm-table-body">
+              <!-- Loaded dynamically by admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- COUPONS BUILDER MODULE -->
+      <section class="tab-panel" data-tab="coupons">
+        <div class="db-header">
+          <div class="db-title">
+            <h2>Coupons & Promotional Builder</h2>
+            <p>Generate, edit, and deactivate discount codes.</p>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="chart-card">
+            <h3 class="chart-title">Generate Promo Code</h3>
+            <form id="admin-coupon-builder-form">
+              <div class="form-group">
+                <label for="c-code" class="form-label">Promo Code Code</label>
+                <input type="text" id="c-code" class="form-control" placeholder="SUMMER30" style="text-transform: uppercase;" required>
+              </div>
+              <div class="form-group">
+                <label for="c-discount" class="form-label">Discount Percentage (%)</label>
+                <input type="number" id="c-discount" class="form-control" value="25" min="1" max="100" required>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width:100%;">Create Coupon Code</button>
+            </form>
+          </div>
+
+          <div class="chart-card">
+            <h3 class="chart-title">Active Resort Coupon Codes</h3>
+            <div id="active-coupons-list-container" style="display:flex; flex-direction:column; gap: var(--spacing-sm);">
+              <!-- Loaded dynamically -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SETTINGS MODULE -->
+      <section class="tab-panel" data-tab="settings">
+        <div class="db-header">
+          <div class="db-title">
+            <h2>Resort Configurations Settings</h2>
+            <p>Modify global parameters (Luxury tax, local service rates, addresses).</p>
+          </div>
+        </div>
+
+        <div class="chart-card" style="max-width: 600px;">
+          <form id="admin-settings-form">
+            <div class="grid-2" style="gap: var(--spacing-sm);">
+              <div class="form-group">
+                <label for="set-tax" class="form-label">Luxury Tax rate (%)</label>
+                <input type="number" id="set-tax" class="form-control" value="12" required>
+              </div>
+              <div class="form-group">
+                <label for="set-service" class="form-label">Service Fee (%)</label>
+                <input type="number" id="set-service" class="form-control" value="5" required>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="set-contact" class="form-label">Inquiry Contact Number</label>
+              <input type="text" id="set-contact" class="form-control" value="+39 089 555 019" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Settings Configurations</button>
+          </form>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/components.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

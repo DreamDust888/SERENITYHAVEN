@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reserve Stay | Serenity Haven Resort</title>
+  <meta name="description" content="Secure your luxury accommodations at Serenity Haven. Safe credit card transactions, custom add-ons, and dynamic pricing models.">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/booking.css">
+  
+  <style>
+    /* Styling page adjustments */
+    header {
+      background-color: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+    }
+    .logo, nav a {
+      color: var(--color-charcoal) !important;
+    }
+    nav a::after {
+      background: var(--color-gold) !important;
+    }
+    header.scrolled .nav-container {
+      height: 70px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Navigation (Preset scrolled style for visibility) -->
+  <header>
+    <div class="container nav-container" style="height: 70px;">
+      <a href="index.html" class="logo" aria-label="Serenity Haven Home">SERENITY<span>HAVEN</span></a>
+      <nav aria-label="Main Navigation">
+        <a href="index.html#hero">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#rooms">Rooms</a>
+        <a href="index.html#dining">Dining</a>
+        <a href="index.html#experiences">Experiences</a>
+        <a href="index.html#gallery">Gallery</a>
+        <a href="index.html#reviews">Reviews</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="booking.html" class="btn btn-outline active" style="padding: 0.5rem 1.25rem; margin-left: 10px;">Book Now</a>
+      </nav>
+      <button class="menu-btn" id="mobile-menu-toggle" aria-label="Toggle navigation">
+        <span class="menu-btn-burger" style="background-color: var(--color-charcoal);"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Banner Header -->
+  <div class="booking-header-banner">
+    <div class="container">
+      <h1>Custom Stays Reservation</h1>
+      <p style="color: var(--color-sand);">Choose your haven, customize services, and complete secure reservations.</p>
+    </div>
+  </div>
+
+  <main class="container section-padding" style="padding-top: 40px;">
+    
+    <!-- Step Progress Nodes -->
+    <div class="step-indicator" aria-hidden="true">
+      <div class="step-node active" id="step-node-1">
+        <div class="step-dot">1</div>
+        <span class="step-label">Stays & dates</span>
+      </div>
+      
+      <div class="step-node" id="step-node-2">
+        <div class="step-dot">2</div>
+        <span class="step-label">Add-ons & Guest info</span>
+      </div>
+      
+      <div class="step-node" id="step-node-3">
+        <div class="step-dot">3</div>
+        <span class="step-label">Secure Payment</span>
+      </div>
+      
+      <div class="step-node" id="step-node-4">
+        <div class="step-dot">4</div>
+        <span class="step-label">Confirmation</span>
+      </div>
+    </div>
+
+    <!-- Booking Content Grid -->
+    <div class="booking-layout">
+      
+      <!-- Wizard Forms Area -->
+      <section style="flex-grow: 1;">
+        
+        <!-- STEP 1: DATES & ROOM SELECT -->
+        <div class="wizard-step-panel active" id="step-panel-1">
+          <h2 style="font-family: var(--font-serif); margin-bottom: var(--spacing-md);">1. Choose Dates & Accommodations</h2>
+          
+          <div class="grid-2" style="margin-bottom: var(--spacing-md); gap: var(--spacing-sm);">
+            <div class="form-group">
+              <label for="booking-checkin" class="form-label">Check-In Date</label>
+              <input type="date" id="booking-checkin" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="booking-checkout" class="form-label">Check-Out Date</label>
+              <input type="date" id="booking-checkout" class="form-control" required>
+            </div>
+          </div>
+          
+          <div class="form-group" style="margin-bottom: var(--spacing-lg);">
+            <label for="booking-guests" class="form-label">Guests Count</label>
+            <select id="booking-guests" class="form-control">
+              <option value="1">1 Guest</option>
+              <option value="2" selected>2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4 Guests</option>
+              <option value="5">5 Guests</option>
+            </select>
+          </div>
+
+          <h3 style="font-family: var(--font-serif); margin-bottom: var(--spacing-sm); border-top: 1px solid var(--color-border); padding-top: var(--spacing-sm);">Available Havens</h3>
+          
+          <div class="room-choices-wrapper" id="room-selection-container">
+            <!-- Loaded dynamically with skeletons by booking.js -->
+          </div>
+
+          <div style="display:flex; justify-content: flex-end; margin-top: var(--spacing-lg);">
+            <button class="btn btn-primary" id="btn-next-1">Continue to Add-ons</button>
+          </div>
+        </div>
+
+        <!-- STEP 2: EXTRAS & DETAILS -->
+        <div class="wizard-step-panel" id="step-panel-2">
+          <h2 style="font-family: var(--font-serif); margin-bottom: var(--spacing-md);">2. Customize Stays & Guest Details</h2>
+          
+          <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: var(--spacing-sm);">Bespoke Upgrades & Add-ons</h3>
+          <p>Elevate your retreat with premium additions managed by our concierge.</p>
+
+          <div class="extra-services-list" id="services-addons-container">
+            <!-- Loaded dynamically by booking.js -->
+          </div>
+
+          <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin-top: var(--spacing-lg); margin-bottom: var(--spacing-sm); border-top: 1px solid var(--color-border); padding-top: var(--spacing-sm);">Primary Guest Particulars</h3>
+          
+          <div class="grid-2" style="gap: var(--spacing-sm);">
+            <div class="form-group">
+              <label for="guest-name" class="form-label">First & Last Name</label>
+              <input type="text" id="guest-name" class="form-control" placeholder="Andrew Bennett" required>
+              <div class="invalid-feedback">Please enter your full name.</div>
+            </div>
+            
+            <div class="form-group">
+              <label for="guest-email" class="form-label">Email Address</label>
+              <input type="email" id="guest-email" class="form-control" placeholder="andrew@example.com" required>
+              <div class="invalid-feedback">Please enter a valid email address.</div>
+            </div>
+          </div>
+          
+          <div class="grid-2" style="gap: var(--spacing-sm);">
+            <div class="form-group">
+              <label for="guest-phone" class="form-label">Mobile Number</label>
+              <input type="tel" id="guest-phone" class="form-control" placeholder="+1 (555) 0199" required>
+              <div class="invalid-feedback">Please provide your contact number.</div>
+            </div>
+            
+            <div class="form-group">
+              <label for="guest-requests" class="form-label">Special Requests (Optional)</label>
+              <input type="text" id="guest-requests" class="form-control" placeholder="Feather-free pillows, early checking...">
+            </div>
+          </div>
+
+          <div style="display:flex; justify-content: space-between; margin-top: var(--spacing-lg);">
+            <button class="btn btn-outline" id="btn-back-2">Back</button>
+            <button class="btn btn-primary" id="btn-next-2">Continue to Payment</button>
+          </div>
+        </div>
+
+        <!-- STEP 3: REVIEW & PAYMENT -->
+        <div class="wizard-step-panel" id="step-panel-3">
+          <h2 style="font-family: var(--font-serif); margin-bottom: var(--spacing-md);">3. Secure Payment & Verification</h2>
+          
+          <div class="payment-methods-grid">
+            <button class="payment-method-card selected" type="button" id="pay-card-btn">Secure Credit Card</button>
+            <button class="payment-method-card" type="button" id="pay-upi-btn">UPI / Instant Bank Pay</button>
+          </div>
+
+          <!-- Card Forms Panel -->
+          <div id="credit-card-form">
+            <div class="form-group">
+              <label for="card-num" class="form-label">Credit Card Number</label>
+              <input type="text" id="card-num" class="form-control" placeholder="4111 2222 3333 4444" maxlength="19" required>
+              <div class="invalid-feedback">Enter a valid 16-digit card number.</div>
+            </div>
+            
+            <div class="grid-2" style="gap: var(--spacing-sm);">
+              <div class="form-group">
+                <label for="card-expiry" class="form-label">Expiry Date</label>
+                <input type="text" id="card-expiry" class="form-control" placeholder="MM/YY" maxlength="5" required>
+                <div class="invalid-feedback">Enter card expiry date (MM/YY).</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="card-cvv" class="form-label">CVV / Security Code</label>
+                <input type="password" id="card-cvv" class="form-control" placeholder="***" maxlength="4" required>
+                <div class="invalid-feedback">Enter a 3 or 4 digit CVV.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- UPI Form Panel -->
+          <div id="upi-payment-form" style="display:none;">
+            <div class="form-group">
+              <label for="upi-vpa" class="form-label">Enter UPI Virtual Address (VPA)</label>
+              <input type="text" id="upi-vpa" class="form-control" placeholder="username@upi">
+              <div class="invalid-feedback">Provide a valid UPI VPA handle.</div>
+            </div>
+            <p style="font-size:0.8rem; color:var(--color-text-muted);">A transaction approval request will be sent to your UPI applications.</p>
+          </div>
+
+          <!-- Coupon code input -->
+          <div class="form-group" style="margin-top: var(--spacing-md); border-top: 1px solid var(--color-border); padding-top: var(--spacing-md);">
+            <label for="coupon-code" class="form-label">Apply Promo Code</label>
+            <div style="display:flex; gap: var(--spacing-xs);">
+              <input type="text" id="coupon-code" class="form-control" placeholder="LUXURY20" style="text-transform: uppercase;">
+              <button class="btn btn-outline" type="button" id="btn-apply-coupon" style="padding: 0 1.5rem;">Apply</button>
+            </div>
+            <div id="coupon-feedback" style="font-size: 0.8rem; margin-top: 4px;"></div>
+          </div>
+
+          <!-- Terms Checkbox -->
+          <div class="form-group" style="margin-top: var(--spacing-md);">
+            <label style="display:flex; gap: 8px; align-items: flex-start; cursor: pointer; font-size: 0.85rem;">
+              <input type="checkbox" id="terms-chk" required style="width: 18px; height: 18px; accent-color: var(--color-emerald); margin-top: 2px;">
+              <span>I agree to the cancellation policies, resort rules, and terms of services.</span>
+            </label>
+            <div class="invalid-feedback" id="terms-feedback" style="display:none;">You must accept the terms before making payment.</div>
+          </div>
+
+          <div style="display:flex; justify-content: space-between; margin-top: var(--spacing-lg);">
+            <button class="btn btn-outline" id="btn-back-3">Back</button>
+            <button class="btn btn-primary" id="btn-complete-booking">Process Secure Payment</button>
+          </div>
+        </div>
+
+        <!-- STEP 4: CONFIRMATION & INVOICE -->
+        <div class="wizard-step-panel" id="step-panel-4">
+          <div style="text-align: center; margin-bottom: var(--spacing-lg);">
+            <!-- Confetti / Success SVG Icon -->
+            <div style="width: 64px; height: 64px; border-radius: var(--radius-full); background: rgba(22, 101, 52, 0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-sm);">
+              <svg viewBox="0 0 24 24" style="width: 36px; height: 36px; fill: var(--color-emerald);"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            </div>
+            <h2 style="font-family: var(--font-serif); font-size: 2.2rem; color: var(--color-forest-green); margin-bottom: 2px;">Retreat Confirmed!</h2>
+            <p>Welcome to Serenity Haven Resort. A digital confirmation is on its way to your inbox.</p>
+          </div>
+
+          <!-- PRINTABLE INVOICE COMPONENT -->
+          <div class="invoice-container" id="digital-invoice-node">
+            <div class="invoice-header">
+              <div>
+                <div class="logo" style="font-size: 1.5rem; margin-bottom: 4px;">SERENITY<span>HAVEN</span></div>
+                <div style="font-size:0.8rem; color:var(--color-text-muted);">Via dei Monasteri 12, Amalfi, Italy</div>
+              </div>
+              <div style="text-align: right;">
+                <h3 style="font-family: var(--font-sans); font-weight:700; font-size: 1.1rem; text-transform: uppercase;">Invoice Statement</h3>
+                <div style="font-size: 0.85rem;" id="invoice-id-field">Invoice #: SH-2026-98104</div>
+                <div style="font-size: 0.85rem;" id="invoice-date-field">Issued: July 1, 2026</div>
+              </div>
+            </div>
+
+            <div class="invoice-billing-details">
+              <div>
+                <h4 style="font-family:var(--font-sans); text-transform: uppercase; font-size:0.8rem; color:var(--color-text-muted); margin-bottom: 4px;">Primary Guest</h4>
+                <div style="font-weight: 600;" id="inv-guest-name">Andrew Bennett</div>
+                <div id="inv-guest-email">andrew@example.com</div>
+                <div id="inv-guest-phone">+1 (555) 0199</div>
+              </div>
+              <div style="text-align: right;">
+                <h4 style="font-family:var(--font-sans); text-transform: uppercase; font-size:0.8rem; color:var(--color-text-muted); margin-bottom: 4px;">Booking Period</h4>
+                <div style="font-weight: 600;" id="inv-booking-dates">July 2, 2026 - July 5, 2026</div>
+                <div id="inv-booking-nights">Nights: 3 Nights</div>
+                <div id="inv-booking-room">Haven: Premium Suite</div>
+              </div>
+            </div>
+
+            <table class="invoice-table">
+              <thead>
+                <tr>
+                  <th>Description</th>
+                  <th style="text-align: right;">Rate / Price</th>
+                  <th style="text-align: right;">Total</th>
+                </tr>
+              </thead>
+              <tbody id="invoice-items-body">
+                <!-- Calculated dynamically -->
+              </tbody>
+            </table>
+
+            <div style="display:flex; justify-content: flex-end;">
+              <div style="width: 250px;">
+                <div class="pricing-row" style="font-size:0.9rem;">
+                  <span>Subtotal</span>
+                  <span id="inv-subtotal">$2,160.00</span>
+                </div>
+                <div class="pricing-row discount" style="font-size:0.9rem;" id="inv-discount-row">
+                  <span>Promo Code</span>
+                  <span id="inv-discount">-$216.00</span>
+                </div>
+                <div class="pricing-row" style="font-size:0.9rem;">
+                  <span>Luxury Tax (12%)</span>
+                  <span id="inv-tax">$233.28</span>
+                </div>
+                <div class="pricing-row" style="font-size:0.9rem;">
+                  <span>Service Fee (5%)</span>
+                  <span id="inv-service">$97.20</span>
+                </div>
+                <div class="pricing-row total">
+                  <span>Grand Total</span>
+                  <span id="inv-total">$2,274.48</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap: var(--spacing-sm); justify-content: center; margin-top: var(--spacing-lg);" class="no-print">
+            <button class="btn btn-outline" onclick="window.print()">Print Invoice</button>
+            <a href="customer-dashboard.html" class="btn btn-primary">Go to Guest Portal</a>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- STICKY SUMMARY SIDEBAR -->
+      <aside class="no-print" aria-label="Stays pricing breakdowns">
+        <div class="pricing-summary-card">
+          <h3 class="summary-title">Stay Summary</h3>
+          
+          <div style="margin-bottom: var(--spacing-md);">
+            <div style="font-weight:700; color:var(--color-charcoal); margin-bottom: 2px;" id="sum-room-name">No Haven Selected</div>
+            <div style="font-size: 0.85rem; color: var(--color-text-muted);" id="sum-dates">Select dates in step 1</div>
+            <div style="font-size: 0.85rem; color: var(--color-text-muted);" id="sum-guests">Guests: 2 Adults</div>
+          </div>
+
+          <!-- Dynamic Billing Details -->
+          <div id="summary-pricing-list" style="display:none;">
+            <div class="pricing-row">
+              <span id="sum-base-label">Base Rate (3 nights)</span>
+              <span id="sum-base-price">$2,160.00</span>
+            </div>
+            
+            <div class="pricing-row" id="sum-season-row" style="display:none; font-size: 0.85rem;">
+              <span>Peak Season Surcharge</span>
+              <span id="sum-season-price">$0.00</span>
+            </div>
+
+            <div class="pricing-row" id="sum-weekend-row" style="display:none; font-size: 0.85rem;">
+              <span>Weekend Premium</span>
+              <span id="sum-weekend-price">$0.00</span>
+            </div>
+
+            <div class="pricing-row" id="sum-addons-row" style="display:none;">
+              <span>Concierge Addons</span>
+              <span id="sum-addons-price">$0.00</span>
+            </div>
+
+            <div class="pricing-row discount" id="sum-discount-row" style="display:none;">
+              <span>Discount</span>
+              <span id="sum-discount-price">-$0.00</span>
+            </div>
+
+            <div class="pricing-row">
+              <span>Luxury Tax (12%)</span>
+              <span id="sum-tax-price">$259.20</span>
+            </div>
+
+            <div class="pricing-row">
+              <span>Service Charge (5%)</span>
+              <span id="sum-service-price">$108.00</span>
+            </div>
+
+            <div class="pricing-row total">
+              <span>Estimated Total</span>
+              <span id="sum-grand-total">$2,527.20</span>
+            </div>
+          </div>
+
+          <div id="summary-empty-state" style="text-align:center; padding: var(--spacing-md) 0;">
+            <p style="font-size: 0.85rem;">Complete your selection to calculate stay rates.</p>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Fullscreen Payment Security Overlay -->
+  <div class="payment-processing-overlay" id="payment-loader-overlay" aria-live="assertive" role="alert">
+    <div class="spinner-container">
+      <div class="spinner"></div>
+      <h3 style="color:var(--color-warm-white); font-family:var(--font-sans); font-weight:700; margin-top:10px;">Securing Transaction</h3>
+      <p style="color:var(--color-sand); font-size:0.9rem;">Securing your luxury booking with bank-grade encryption...</p>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/components.js"></script>
+  <script src="js/booking.js"></script>
+</body>
+</html>

@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serenity Haven | Premium Luxury Resort & Spa</title>
+  <meta name="description" content="Experience absolute luxury and peace at Serenity Haven Resort. Book your premium stay with infinity pools, fine dining, and customized wellness treatments.">
+  
+  <!-- SEO & Open Graph Metadata -->
+  <meta property="og:title" content="Serenity Haven | Premium Luxury Resort & Spa">
+  <meta property="og:description" content="Experience absolute luxury and peace at Serenity Haven Resort. Book your premium stay with infinity pools, fine dining, and customized wellness treatments.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:url" content="https://www.serenityhavenresort.com/index.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Serenity Haven | Premium Luxury Resort & Spa">
+  <meta name="twitter:description" content="Experience absolute luxury and peace at Serenity Haven Resort. Book your premium stay with infinity pools, fine dining, and customized wellness treatments.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- JSON-LD Hotel Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Hotel",
+    "name": "Serenity Haven Resort & Spa",
+    "description": "Premium luxury resort featuring infinity pools, world-class fine dining, and private villas.",
+    "image": "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=80",
+    "telephone": "+1-800-555-0199",
+    "email": "reservations@serenityhaven.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "100 Ocean Vista Drive",
+      "addressLocality": "Cliffs of Amalfi",
+      "addressRegion": "Salerno",
+      "postalCode": "84011",
+      "addressCountry": "IT"
+    },
+    "starRating": {
+      "@type": "Rating",
+      "ratingValue": "5"
+    },
+    "priceRange": "$$$$"
+  }
+  </script>
+
+  <!-- Google Fonts Preload -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  
+  <style>
+    /* Page-Specific Animations & Parallax Styles */
+    .hero-section {
+      height: 100vh;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-warm-white);
+    }
+    
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to bottom, rgba(17, 24, 39, 0.4), rgba(17, 24, 39, 0.75)), 
+                        url('https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed; /* Parallax effect */
+      z-index: 1;
+      transform: scale(1.02);
+      transition: transform var(--transition-slow);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      padding: 0 var(--spacing-sm);
+      margin-top: -50px;
+    }
+
+    .hero-content h1 {
+      color: var(--color-warm-white);
+      margin-bottom: var(--spacing-xs);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-sans);
+      font-size: 1.15rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-sand);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-sm);
+    }
+
+    /* Floating Booking Widget */
+    .booking-widget-wrapper {
+      position: relative;
+      z-index: 10;
+      margin-top: -60px;
+      padding: 0 var(--spacing-sm);
+    }
+
+    .booking-widget {
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-md);
+      box-shadow: var(--shadow-lg);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)) 160px;
+      gap: var(--spacing-sm);
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+    }
+
+    .widget-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .widget-group label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-charcoal);
+      margin-bottom: 6px;
+    }
+
+    .widget-group input,
+    .widget-group select {
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid var(--color-border);
+      padding: 10px 12px;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      border-radius: var(--radius-sm);
+      color: var(--color-text-dark);
+      transition: all var(--transition-fast);
+      width: 100%;
+    }
+
+    .widget-group input:focus,
+    .widget-group select:focus {
+      outline: none;
+      border-color: var(--color-gold);
+      background: var(--color-white);
+    }
+
+    /* About Section Collage */
+    .about-section {
+      background-color: var(--color-white);
+    }
+
+    .about-collage {
+      position: relative;
+      height: 480px;
+    }
+
+    .collage-img {
+      position: absolute;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: transform var(--transition-slow);
+    }
+
+    .collage-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .collage-img:hover {
+      transform: scale(1.03) translateY(-5px);
+      z-index: 10 !important;
+    }
+
+    .collage-1 {
+      width: 65%;
+      height: 380px;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .collage-2 {
+      width: 45%;
+      height: 250px;
+      bottom: 0;
+      right: 0;
+      z-index: 2;
+      border: 6px solid var(--color-white);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--spacing-md);
+      margin-top: var(--spacing-lg);
+      text-align: center;
+    }
+
+    .stat-card {
+      padding: var(--spacing-sm);
+      border-radius: var(--radius-md);
+      background-color: var(--color-warm-white);
+      border: 1px solid var(--color-border);
+    }
+
+    .stat-number {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      color: var(--color-gold);
+      margin-bottom: 2px;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      color: var(--color-text-muted);
+    }
+
+    /* Rooms Filtering Section */
+    .rooms-filter-container {
+      background-color: var(--color-white);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      padding: var(--spacing-md);
+      margin-bottom: var(--spacing-lg);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--spacing-sm);
+    }
+
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-xs);
+    }
+
+    .filter-tab {
+      background: var(--color-warm-white);
+      border: 1px solid var(--color-border);
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all var(--transition-fast);
+    }
+
+    .filter-tab.active,
+    .filter-tab:hover {
+      background-color: var(--color-gold);
+      border-color: var(--color-gold);
+      color: var(--color-deep-navy);
+    }
+
+    .sort-control {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+    }
+
+    .sort-control label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+    }
+
+    .sort-control select {
+      background: var(--color-warm-white);
+      border: 1px solid var(--color-border);
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+    }
+
+    .rooms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: var(--spacing-lg);
+    }
+
+    .room-specs {
+      display: flex;
+      gap: var(--spacing-sm);
+      margin: var(--spacing-sm) 0;
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      padding: 8px 0;
+    }
+
+    .room-specs span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .room-specs svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--color-gold);
+    }
+
+    .room-price {
+      font-size: 1.4rem;
+      font-family: var(--font-serif);
+      color: var(--color-forest-green);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .room-price span {
+      font-size: 0.85rem;
+      font-family: var(--font-sans);
+      color: var(--color-text-muted);
+    }
+
+    /* Amenities Premium Grid */
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: var(--spacing-md);
+    }
+
+    .amenity-card {
+      background-color: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-md) var(--spacing-sm);
+      text-align: center;
+      transition: all var(--transition-fast);
+    }
+
+    .amenity-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--color-gold);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .amenity-card svg {
+      width: 36px;
+      height: 36px;
+      fill: var(--color-gold);
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .amenity-card h4 {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--color-charcoal);
+    }
+
+    /* Experiences Section */
+    .experience-card {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 10 / 12;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .experience-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+
+    .experience-card:hover .experience-img {
+      transform: scale(1.08);
+    }
+
+    .experience-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(17, 24, 39, 0.9) 20%, rgba(17, 24, 39, 0.1) 80%);
+      padding: var(--spacing-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: var(--color-warm-white);
+    }
+
+    .experience-overlay h3 {
+      color: var(--color-warm-white);
+      font-size: 1.6rem;
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .experience-desc {
+      font-size: 0.85rem;
+      color: var(--color-sand);
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: all var(--transition-normal);
+    }
+
+    .experience-card:hover .experience-desc {
+      max-height: 60px;
+      opacity: 1;
+      margin-top: 5px;
+    }
+
+    /* Fine Dining Section */
+    .dining-section {
+      background-color: var(--color-charcoal);
+      color: var(--color-warm-white);
+    }
+
+    .dining-section h2, .dining-section h3 {
+      color: var(--color-warm-white);
+    }
+
+    .dining-collage {
+      position: relative;
+      height: 400px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .dining-collage img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Masonry Gallery Grid */
+    .gallery-filter-tabs {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-xs);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .gallery-grid {
+      column-count: 3;
+      column-gap: var(--spacing-md);
+    }
+
+    .gallery-item {
+      display: inline-block;
+      width: 100%;
+      margin-bottom: var(--spacing-md);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      transition: transform var(--transition-slow);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-hover-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(28, 25, 23, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+    }
+
+    .gallery-item:hover .gallery-hover-overlay {
+      opacity: 1;
+    }
+
+    .gallery-hover-overlay svg {
+      width: 32px;
+      height: 32px;
+      fill: var(--color-warm-white);
+    }
+
+    @media (max-width: 900px) {
+      .gallery-grid {
+        column-count: 2;
+      }
+    }
+    @media (max-width: 600px) {
+      .gallery-grid {
+        column-count: 1;
+      }
+    }
+
+    /* Testimonials Slider */
+    .testimonial-wrapper {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .testimonial-track {
+      display: flex;
+      transition: transform var(--transition-normal);
+    }
+
+    .testimonial-slide {
+      min-width: 100%;
+      padding: var(--spacing-md);
+      text-align: center;
+    }
+
+    .guest-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: var(--radius-full);
+      margin: 0 auto var(--spacing-sm);
+      overflow: hidden;
+      border: 3px solid var(--color-gold);
+    }
+
+    .guest-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .star-rating {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .star-rating svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--color-gold);
+    }
+
+    .quote-text {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-style: italic;
+      color: var(--color-charcoal);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .guest-name {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .testimonial-nav {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-xs);
+      margin-top: var(--spacing-sm);
+    }
+
+    .testimonial-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: var(--radius-full);
+      background-color: var(--color-sand-dark);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background-color var(--transition-fast);
+    }
+
+    .testimonial-dot.active {
+      background-color: var(--color-gold);
+    }
+
+    /* Lightbox Overlay Styles */
+    .lightbox-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(17, 24, 39, 0.95);
+      z-index: 1200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: var(--spacing-md);
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 85vh;
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -45px;
+      right: 0;
+      background: none;
+      border: none;
+      color: var(--color-warm-white);
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    /* Animation utility triggers */
+    .animate-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity var(--transition-slow), transform var(--transition-slow);
+    }
+
+    .animate-up.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Layout Responsive Tweaks */
+    @media (max-width: 768px) {
+      .booking-widget {
+        grid-template-columns: 1fr 1fr;
+      }
+      .booking-widget button {
+        grid-column: span 2;
+      }
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .about-collage {
+        height: 380px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress Indicator -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Header Navigation -->
+  <header id="main-header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo" aria-label="Serenity Haven Home">SERENITY<span>HAVEN</span></a>
+      
+      <nav id="nav-links" aria-label="Main Navigation">
+        <a href="#hero" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#rooms">Rooms</a>
+        <a href="#dining">Dining</a>
+        <a href="#experiences">Experiences</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+        <a href="booking.html" class="btn btn-outline" style="padding: 0.5rem 1.25rem; margin-left: 10px;">Book Now</a>
+      </nav>
+      
+      <button class="menu-btn" id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="nav-links">
+        <span class="menu-btn-burger"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 1. FULLSCREEN HERO -->
+  <section class="hero-section" id="hero">
+    <div class="hero-bg" id="hero-parallax"></div>
+    <div class="hero-content">
+      <span class="hero-tagline">AMALFI COAST'S SANCTUARY</span>
+      <h1>Where Luxury Meets the Infinite Sea</h1>
+      <p style="color: var(--color-sand); margin-bottom: var(--spacing-lg); font-size: 1.15rem;">Discover a sensory retreat where nature's grandeur blends perfectly with sophisticated Italian architecture and Michelin culinary arts.</p>
+      <div class="hero-actions">
+        <a href="booking.html" class="btn btn-primary">Book Now</a>
+        <a href="#about" class="btn btn-white">Explore Resort</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. FLOATING BOOKING WIDGET -->
+  <div class="booking-widget-wrapper">
+    <form class="booking-widget" id="quick-booking-form" action="booking.html" method="GET">
+      <div class="widget-group">
+        <label for="widget-checkin">Check-In</label>
+        <input type="date" id="widget-checkin" name="checkin" required>
+      </div>
+      
+      <div class="widget-group">
+        <label for="widget-checkout">Check-Out</label>
+        <input type="date" id="widget-checkout" name="checkout" required>
+      </div>
+      
+      <div class="widget-group">
+        <label for="widget-guests">Guests</label>
+        <select id="widget-guests" name="guests">
+          <option value="1">1 Adult</option>
+          <option value="2" selected>2 Adults</option>
+          <option value="3">3 Adults</option>
+          <option value="4">4 Adults</option>
+          <option value="family">Family (2A + 2C)</option>
+        </select>
+      </div>
+      
+      <div class="widget-group">
+        <label for="widget-room-type">Room Type</label>
+        <select id="widget-room-type" name="roomType">
+          <option value="all">All Rooms</option>
+          <option value="deluxe">Deluxe Room</option>
+          <option value="cottage">Garden Cottage</option>
+          <option value="suite">Premium Suite</option>
+          <option value="villa">Pool Villa</option>
+        </select>
+      </div>
+      
+      <div class="widget-group flex-center">
+        <button type="submit" class="btn btn-primary" style="width: 100%; height: 42px; padding: 0;">Search Stays</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- 3. ABOUT SECTION -->
+  <section class="section-padding about-section" id="about">
+    <div class="container">
+      <div class="grid-2" style="align-items: center;">
+        <div class="animate-up">
+          <div class="section-header" style="text-align: left; margin-left: 0;">
+            <span class="subtitle">Our Story</span>
+            <h2>Whispering Cliffs & Time-Honored Luxury</h2>
+          </div>
+          <p style="margin-bottom: var(--spacing-sm);">Serenity Haven is perched on a jagged precipice of the Amalfi Coast, rising from a 16th-century former monastery into a timeless sanctuary. Restored with respect for historic architecture, our resort boasts dry stone walls, olive gardens, and sweeping vaults.</p>
+          <p style="margin-bottom: var(--spacing-md);">Every element is curated to invite quiet reflection. Experience private terraces suspended over the Mediterranean, infinity edges dissolving into the horizon, and tailored services that cater to your highest expectations.</p>
+          <a href="#rooms" class="btn btn-outline">Explore Accommodations</a>
+        </div>
+        
+        <div class="about-collage animate-up" style="transition-delay: 0.1s;">
+          <div class="collage-img collage-1">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=700&q=80" alt="Resort spa terrace overlooking the coast" loading="lazy">
+          </div>
+          <div class="collage-img collage-2">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=500&q=80" alt="Sandy cove at cliff base" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <!-- Count Up Statistics -->
+      <div class="stats-grid animate-up">
+        <div class="stat-card">
+          <div class="stat-number" data-target="25">0</div>
+          <div class="stat-label">Luxury Rooms</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="15">0</div>
+          <div class="stat-label">Acres of Oasis</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="3">0</div>
+          <div class="stat-label">Infinity Pools</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="12">0</div>
+          <div class="stat-label">Global Awards</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. ACCOMMODATION SECTION -->
+  <section class="section-padding" id="rooms" style="background-color: var(--color-warm-white);">
+    <div class="container">
+      <div class="section-header">
+        <span class="subtitle">Private Havens</span>
+        <h2>Exquisite Lodging Formats</h2>
+        <p>Architectural elegance meeting premium sea breezes. Choose from our hand-tailored options.</p>
+      </div>
+
+      <!-- Rooms Filtering and Sorting Controls -->
+      <div class="rooms-filter-container animate-up">
+        <div class="filter-tabs">
+          <button class="filter-tab active" data-filter="all">All Havens</button>
+          <button class="filter-tab" data-filter="room">Rooms</button>
+          <button class="filter-tab" data-filter="cottage">Cottages</button>
+          <button class="filter-tab" data-filter="suite">Suites</button>
+          <button class="filter-tab" data-filter="villa">Villas</button>
+        </div>
+        
+        <div class="sort-control">
+          <label for="room-sort">Sort By:</label>
+          <select id="room-sort" aria-label="Sort accommodations">
+            <option value="popularity">Popularity</option>
+            <option value="low-high">Price: Low to High</option>
+            <option value="high-low">Price: High to Low</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Rooms Listing Grid -->
+      <div class="rooms-grid animate-up" id="rooms-catalog-grid">
+        <!-- Rendered dynamically by main.js with Skeleton fallback -->
+        <div class="skeleton-card" style="height: 450px; background-color: var(--color-white); border-radius: var(--radius-md);">
+          <div class="skeleton skeleton-image"></div>
+          <div style="padding: 20px;">
+            <div class="skeleton skeleton-text" style="width: 40%"></div>
+            <div class="skeleton skeleton-text" style="width: 80%"></div>
+            <div class="skeleton skeleton-text" style="width: 60%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. AMENITIES SECTION -->
+  <section class="section-padding" id="amenities" style="background-color: var(--color-white);">
+    <div class="container">
+      <div class="section-header animate-up">
+        <span class="subtitle">Serenity Features</span>
+        <h2>World-Class Conveniences</h2>
+        <p>Curated services to ensure your stay is fully serviced, tranquil, and comfortable.</p>
+      </div>
+      
+      <div class="amenities-grid animate-up">
+        <div class="amenity-card">
+          <!-- Pool Icon -->
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          <h4>Infinity Pool</h4>
+        </div>
+        
+        <div class="amenity-card">
+          <!-- Spa Icon -->
+          <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 00-9 9c0 4.97 4.02 9 9 9 3.56 0 6.64-2.07 8.1-5.07l-1.54-.77A7.38 7.38 0 0112 19.5c-4.14 0-7.5-3.36-7.5-7.5s3.36-7.5 7.5-7.5c2.98 0 5.56 1.74 6.79 4.27l1.55-.78C18.64 5.07 15.56 3 12 3zm0 6c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+          <h4>Thermal Spa</h4>
+        </div>
+
+        <div class="amenity-card">
+          <!-- Dining Icon -->
+          <svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm7-3c-1.78 0-3 1.2-3 3v13h3v-7h3V9c0-1.8-1.22-3-3-3z"/></svg>
+          <h4>Michelin Eatery</h4>
+        </div>
+
+        <div class="amenity-card">
+          <!-- Room Service Icon -->
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16h-2v-2h2v2zm0-4h-2V7h2v7z"/></svg>
+          <h4>24/7 Room Butler</h4>
+        </div>
+
+        <div class="amenity-card">
+          <!-- WiFi Icon -->
+          <svg viewBox="0 0 24 24"><path d="M12.01 21.49L23.64 7c-.45-.34-4.93-4-11.64-4C5.28 3 .81 6.66.36 7l11.63 14.49.01.01.01-.01z"/></svg>
+          <h4>High-Speed WiFi</h4>
+        </div>
+
+        <div class="amenity-card">
+          <!-- Airport Shuttle Icon -->
+          <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
+          <h4>Airport Pickups</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. EXPERIENCES SECTION -->
+  <section class="section-padding" id="experiences" style="background-color: var(--color-warm-white);">
+    <div class="container">
+      <div class="section-header animate-up">
+        <span class="subtitle">Custom Journeys</span>
+        <h2>Amalfi Life & Activities</h2>
+        <p>Enriching experiences crafted to connect you with land, ocean, and cultural heritages.</p>
+      </div>
+
+      <div class="grid-3 animate-up">
+        <div class="experience-card">
+          <img class="experience-img" src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=700&q=80" alt="Guided coastal cliff path walk" loading="lazy">
+          <div class="experience-overlay">
+            <h3>Guided Cliff Treks</h3>
+            <p class="experience-desc">Wander old path grids high above Amalfi alongside specialized botanists and historians.</p>
+          </div>
+        </div>
+
+        <div class="experience-card">
+          <img class="experience-img" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=700&q=80" alt="Private romantic beach dinner" loading="lazy">
+          <div class="experience-overlay">
+            <h3>Romantic Seaside Stays</h3>
+            <p class="experience-desc">Enjoy private candlelight dining setups on secluded pebble coves with personal sommeliers.</p>
+          </div>
+        </div>
+
+        <div class="experience-card">
+          <img class="experience-img" src="https://images.unsplash.com/photo-1530866495561-507c9faab2ed?auto=format&fit=crop&w=700&q=80" alt="Sunset kayak touring along volcanic cliffs" loading="lazy">
+          <div class="experience-overlay">
+            <h3>Sunset Volcanic Kayaking</h3>
+            <p class="experience-desc">Paddle along towering sea stacks and hidden caves as the sun melts into the Mediterranean.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. DINING SECTION -->
+  <section class="section-padding dining-section" id="dining">
+    <div class="container">
+      <div class="grid-2" style="align-items: center;">
+        <div class="dining-collage animate-up">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=80" alt="A sample fine dining dish with fresh seafood" loading="lazy">
+        </div>
+        
+        <div class="animate-up" style="transition-delay: 0.1s;">
+          <span class="subtitle" style="color: var(--color-gold);">Il Belvedere Restaurant</span>
+          <h2 style="margin-bottom: var(--spacing-sm);">Epicurean Magic by Chef Mateo Rossi</h2>
+          <p style="color: var(--color-sand); margin-bottom: var(--spacing-sm);">Enjoy Michelin-starred dining that honors southern Italian tradition. Our kitchen works directly with organic farms in Ravello and Amalfi fishing vessels to source pure ingredients.</p>
+          <p style="color: var(--color-sand); margin-bottom: var(--spacing-md);">**Hours:** 
+             Dinner seating: 18:30 – 22:30 | Dress code: Resort elegant.</p>
+          
+          <button class="btn btn-primary" onclick="openModal('dining-modal')">Reserve Table</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. MASONRY GALLERY SECTION -->
+  <section class="section-padding" id="gallery" style="background-color: var(--color-white);">
+    <div class="container">
+      <div class="section-header animate-up">
+        <span class="subtitle">Visual Story</span>
+        <h2>Atmospheric Snapshot Gallery</h2>
+        <p>A window into the serene coastal lifestyles of Serenity Haven.</p>
+      </div>
+
+      <div class="gallery-filter-tabs animate-up">
+        <button class="filter-tab active" data-gfilter="all">All photos</button>
+        <button class="filter-tab" data-gfilter="rooms">Havens</button>
+        <button class="filter-tab" data-gfilter="dining">Fine Plates</button>
+        <button class="filter-tab" data-gfilter="nature">Nature views</button>
+      </div>
+
+      <div class="gallery-grid animate-up" id="masonry-gallery-container">
+        <!-- Gallery items will render here via main.js script -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. OFFERS SECTION -->
+  <section class="section-padding" id="offers" style="background-color: var(--color-warm-white);">
+    <div class="container">
+      <div class="section-header animate-up">
+        <span class="subtitle">Resort Luxuries</span>
+        <h2>Exclusive Seasonal Promos</h2>
+        <p>Unlock custom packages designed to expand your luxury getaway values.</p>
+      </div>
+
+      <div class="grid-3 animate-up">
+        <div class="resort-card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=700&q=80" alt="Resort pool deck at dusk" loading="lazy">
+            <span class="badge badge-gold card-badge">Weekend Escape</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Serenity Weekend Escape</h3>
+            <p class="card-text">Secure 3 nights for the price of 2, inclusive of premium morning breakfast buffets and welcome prosecco blocks.</p>
+            <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-weight: 700; color: var(--color-forest-green);">From $590/night</span>
+              <a href="booking.html?promo=LUXURY20" class="btn btn-link">Claim Promo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="resort-card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=700&q=80" alt="Exclusive villa bed layout" loading="lazy">
+            <span class="badge badge-gold card-badge">Honeymoon Special</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Coastal Romantic Escape</h3>
+            <p class="card-text">Private pool suite upgrade, thermal massage spa treatments for two, and signature sunset catamaran voyages.</p>
+            <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-weight: 700; color: var(--color-forest-green);">From $880/night</span>
+              <a href="booking.html?promo=HONEYMOON" class="btn btn-link">Claim Promo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="resort-card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=80" alt="Gourmet dish at Il Belvedere" loading="lazy">
+            <span class="badge badge-gold card-badge">Culinary Delight</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Michelin Half-Board Package</h3>
+            <p class="card-text">Reserve a stay in a premium suite and receive a complimentary 5-course degustation menu at Il Belvedere.</p>
+            <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-weight: 700; color: var(--color-forest-green);">From $720/night</span>
+              <a href="booking.html" class="btn btn-link">Claim Promo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. REVIEWS SECTION -->
+  <section class="section-padding" id="reviews" style="background-color: var(--color-white);">
+    <div class="container">
+      <div class="section-header animate-up">
+        <span class="subtitle">Guest Impressions</span>
+        <h2>Stories of Perfect Retreats</h2>
+        <p>Read about the quiet reflections and warm hospitalities shared by our travelers.</p>
+      </div>
+
+      <div class="testimonial-wrapper animate-up">
+        <div class="testimonial-track" id="testimonial-track">
+          
+          <div class="testimonial-slide">
+            <div class="guest-avatar">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Guest Andrew Bennett">
+            </div>
+            <div class="star-rating">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <!-- Repeat for other stars -->
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="quote-text">"Waking up to the soft blue ocean line from my pool villa terrace was unforgettable. The service felt anticipating rather than intrusive. A true standard of luxury."</p>
+            <div class="guest-name">Andrew Bennett, UK</div>
+          </div>
+          
+          <div class="testimonial-slide">
+            <div class="guest-avatar">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80" alt="Guest Clara Dupont">
+            </div>
+            <div class="star-rating">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="quote-text">"Chef Rossi's lemon seafood degustation was spectacular. The cliffwalk trekking is also a must-experience. Absolutely standard-defining."</p>
+            <div class="guest-name">Clara Dupont, France</div>
+          </div>
+
+        </div>
+        
+        <div class="testimonial-nav">
+          <button class="testimonial-dot active" data-index="0" aria-label="Slide 1"></button>
+          <button class="testimonial-dot" data-index="1" aria-label="Slide 2"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. NEARBY ATTRACTIONS -->
+  <section class="section-padding" id="attractions" style="background-color: var(--color-warm-white);">
+    <div class="container">
+      <div class="section-header animate-up">
+        <span class="subtitle">Explore Amalfi</span>
+        <h2>Local Sights & Locations</h2>
+        <p>Convenient day trips located close to the Serenity Haven resort bounds.</p>
+      </div>
+
+      <div class="grid-3 animate-up">
+        <div class="resort-card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1533900298318-6b8da08a523e?auto=format&fit=crop&w=700&q=80" alt="Duomo di Amalfi cathedral square" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title" style="font-size: 1.25rem;">Duomo di Amalfi</h3>
+            <p class="card-text" style="font-size: 0.9rem;">Historical 9th-century cathedral featuring Arab-Norman architectures, bronze doors, and cloisters.</p>
+            <div style="margin-top: auto; display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 700; color: var(--color-gold);">
+              <span>Distance: 4.2 km</span>
+              <span>Time: 12 mins drive</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="resort-card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1527030280862-64139fbe04ca?auto=format&fit=crop&w=700&q=80" alt="Stunning view of Positano cliffs" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title" style="font-size: 1.25rem;">Positano Cliffs</h3>
+            <p class="card-text" style="font-size: 0.9rem;">Picturesque cliffside village famous for pastel houses cascading down to crystal shore grids.</p>
+            <div style="margin-top: auto; display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 700; color: var(--color-gold);">
+              <span>Distance: 16.5 km</span>
+              <span>Time: 35 mins drive</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="resort-card">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=700&q=80" alt="Cliff views from Ravello gardens" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title" style="font-size: 1.25rem;">Ravello Gardens</h3>
+            <p class="card-text" style="font-size: 0.9rem;">Romantic garden estate terraces at Villa Cimbrone offering panoramic heights of the gulf.</p>
+            <div style="margin-top: auto; display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 700; color: var(--color-gold);">
+              <span>Distance: 8.0 km</span>
+              <span>Time: 20 mins drive</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. FAQ ACCORDION -->
+  <section class="section-padding animate-up" id="faq" style="background-color: var(--color-white);">
+    <div class="container" style="max-width: 800px;">
+      <div class="section-header">
+        <span class="subtitle">Help Center</span>
+        <h2>Frequently Asked Queries</h2>
+      </div>
+
+      <div class="accordion" id="resort-faq">
+        
+        <div class="accordion-item">
+          <button class="accordion-header">
+            What are the check-in and check-out timings?
+            <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5H7z"/></svg>
+          </button>
+          <div class="accordion-content">
+            <p>Our standard check-in hour begins at 15:00, and check-out is set for 12:00 noon. Early arrivals and late departures are subject to availability and can be requested through our concierge.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            What is the booking cancellation policy?
+            <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5H7z"/></svg>
+          </button>
+          <div class="accordion-content">
+            <p>Direct bookings can be cancelled free of charge up to 14 days before your scheduled arrival date. Stays cancelled within 14 days are subject to a fee equal to two nights of room charges.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            Are pets allowed in the resort rooms?
+            <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5H7z"/></svg>
+          </button>
+          <div class="accordion-content">
+            <p>Yes, dogs up to 15 kg are welcome in our Garden Cottages and Pool Villas. A pet cleaning fee of $150 per stay applies. Guide dogs are exempted from size caps and charges.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            Do you offer private airport transfers?
+            <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5H7z"/></svg>
+          </button>
+          <div class="accordion-content">
+            <p>Absolutely. We provide luxury private sedan and Mercedes van transfers from Naples International Airport (NAP) and Salerno Train Station. You can book this service while completing your reservation checkout.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 13. CONTACT SECTION -->
+  <section class="section-padding" id="contact" style="background-color: var(--color-warm-white);">
+    <div class="container">
+      <div class="grid-2">
+        <div class="animate-up">
+          <div class="section-header" style="text-align: left; margin-left: 0; margin-bottom: var(--spacing-md);">
+            <span class="subtitle">Get In Touch</span>
+            <h2>We Welcome Your Inquiry</h2>
+          </div>
+          <p style="margin-bottom: var(--spacing-md);">For special reservations, event bookings, or helicopter transfer requests, connect with our guest relation desks.</p>
+          
+          <div style="margin-bottom: var(--spacing-md);">
+            <p style="margin-bottom: var(--spacing-xs);"><strong>Address:</strong> Via dei Monasteri 12, 84011 Amalfi, Salerno, Italy</p>
+            <p style="margin-bottom: var(--spacing-xs);"><strong>Phone:</strong> +39 089 555 019</p>
+            <p style="margin-bottom: var(--spacing-xs);"><strong>Email:</strong> frontdesk@serenityhaven.com</p>
+          </div>
+
+          <a href="https://wa.me/39089555019" class="btn btn-outline" style="border-color: #25D366; color: #25D366; fill: #25D366;">
+            <!-- WhatsApp Logo SVG -->
+            <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: currentColor; margin-right: 8px;"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.49-3.238c1.657.982 3.277 1.498 4.9.15.534-.002.534-.002.8-.002 5.334 0 9.664-4.33 9.667-9.664.001-2.583-1.002-5.01-2.825-6.833C17.065 2.59 14.64 1.589 12.06 1.589c-5.337 0-9.669 4.33-9.673 9.663 0 1.705.445 3.373 1.288 4.839l-1.018 3.716 3.892-.999z"/></svg>
+            Message via WhatsApp
+          </a>
+        </div>
+
+        <div class="animate-up" style="transition-delay: 0.1s;">
+          <form class="resort-card" style="padding: var(--spacing-md);" id="contact-form-node">
+            <div class="form-group">
+              <label for="contact-name" class="form-label">Full Name</label>
+              <input type="text" id="contact-name" class="form-control" placeholder="Andrew Bennett" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="contact-email" class="form-label">Email Address</label>
+              <input type="email" id="contact-email" class="form-control" placeholder="andrew@example.com" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="contact-msg" class="form-label">Inquiry Message</label>
+              <textarea id="contact-msg" class="form-control" rows="4" placeholder="Hello, I would like to inquire about event availability..." required style="resize: none;"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Inquiry</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Static Map Placeholder -->
+      <div class="animate-up" style="margin-top: var(--spacing-lg); height: 350px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-border); position: relative;">
+        <!-- Simulated High-End Map styling -->
+        <div style="width:100%; height:100%; background: #e3e3e0; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+          <svg viewBox="0 0 24 24" style="width: 50px; height: 50px; fill: var(--color-gold); margin-bottom: 10px;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <span style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; color: var(--color-charcoal);">Via dei Monasteri 12, Amalfi</span>
+          <span style="font-size: 0.85rem; color: var(--color-text-muted);">Interactive Google Map Placeholder</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14. FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <div class="footer-logo">SERENITY<span>HAVEN</span></div>
+          <p>A cliffside sanctuary of restoration, historic luxury, and Michelin-starred culinary craft on the Amalfi Coast.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg></a>
+            <a href="#" aria-label="TripAdvisor"><svg viewBox="0 0 24 24"><path d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm1.758 17.653c-.347.168-.78.291-1.298.371a5.61 5.61 0 01-1.042.083c-.808 0-1.564-.176-2.22-.533-.655-.357-1.164-.863-1.517-1.517-.354-.654-.531-1.41-.531-2.218 0-.809.177-1.565.531-2.22s.862-1.164 1.517-1.517c.656-.354 1.412-.531 2.22-.531s1.564.177 2.22.531c.656.353 1.164.862 1.518 1.517.353.655.531 1.411.531 2.22 0 .808-.178 1.564-.531 2.218a4.417 4.417 0 01-1.518 1.518v.001zm5.228-4.301c-.135.32-.303.625-.502.914a5.2 5.2 0 01-.736.83c-.279.256-.583.473-.912.651s-.678.318-1.048.423a6.564 6.564 0 01-2.285.101c.214-.239.387-.503.52-.792.132-.288.199-.597.199-.925 0-.589-.176-1.11-.53-1.563-.353-.454-.862-.68-1.524-.68-.318 0-.623.072-.914.218a2.53 2.53 0 00-.792.529 1.42 1.42 0 01-.067-.93c.068-.328.181-.637.337-.927s.354-.551.595-.783a4.29 4.29 0 012.39-1.127 5.16 5.16 0 012.593.266c.382.164.733.385 1.049.658.316.273.585.589.805.945a5.27 5.27 0 01.734 1.43c.176.549.254 1.109.237 1.674v.002z"/></svg></a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About Resort</a></li>
+            <li><a href="#rooms">Accommodations</a></li>
+            <li><a href="#dining">Fine Gastronomy</a></li>
+            <li><a href="#experiences">Local Experiences</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Legal Info</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Cancellation Policy</a></li>
+            <li><a href="#">Resort Rules</a></li>
+            <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+            <li><a href="customer-dashboard.html">Guest Portal</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-newsletter">
+          <h4>Resort Chronicle</h4>
+          <p>Subscribe to our seasonal catalog and release letters for priority villa blocks.</p>
+          <form class="newsletter-form" id="newsletter-form-node">
+            <input type="email" placeholder="client@luxury.com" aria-label="Email address" required>
+            <button type="submit">Join</button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div>&copy; 2026 Serenity Haven Resort. All Rights Reserved.</div>
+        <div class="footer-bottom-links">
+          <a href="#">Cookie Policy</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Popup Modal -->
+  <div class="lightbox-overlay" id="gallery-lightbox" aria-modal="true" role="dialog">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close-btn" aria-label="Close Lightbox">&times;</button>
+      <img src="" alt="" class="lightbox-img" id="lightbox-img-el">
+    </div>
+  </div>
+
+  <!-- Dining Reservation Modal -->
+  <div class="modal-overlay" id="dining-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Reserve Table | Il Belvedere</h3>
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="dining-res-form">
+          <div class="form-group">
+            <label for="dining-date" class="form-label">Reservation Date</label>
+            <input type="date" id="dining-date" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="dining-time" class="form-label">Dining Time</label>
+            <select id="dining-time" class="form-control" required>
+              <option value="18:30">18:30 (Sunset view)</option>
+              <option value="19:00">19:00</option>
+              <option value="19:30">19:30</option>
+              <option value="20:00">20:00 (Live music)</option>
+              <option value="20:30">20:30</option>
+              <option value="21:00">21:00</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="dining-covers" class="form-label">Number of Guests</label>
+            <select id="dining-covers" class="form-control">
+              <option value="2" selected>2 Persons</option>
+              <option value="4">4 Persons</option>
+              <option value="6">6 Persons</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="dining-notes" class="form-label">Dietary Notes / Requests</label>
+            <input type="text" id="dining-notes" class="form-control" placeholder="Vegetarian, window table preferred">
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Confirm Table Request</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Offline Warning Banner -->
+  <div class="offline-banner" id="offline-banner-node">
+    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+    <span>Offline mode: details are temporarily stored locally.</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

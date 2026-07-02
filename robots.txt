@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin-dashboard.html
+Disallow: /customer-dashboard.html
+
+Sitemap: https://www.serenityhavenresort.com/sitemap.xml
