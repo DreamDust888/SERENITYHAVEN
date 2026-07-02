@@ -1,0 +1,403 @@
+/*
+ * SERENITY HAVEN RESORT & SPA
+ * Checkout Wizard & Invoice Stylesheet
+ */
+
+.booking-header-banner {
+  background-image: linear-gradient(to right, rgba(17, 24, 39, 0.7), rgba(17, 24, 39, 0.9)), 
+                    url('https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80');
+  background-size: cover;
+  background-position: center;
+  padding: 140px 0 60px;
+  color: var(--color-warm-white);
+  text-align: center;
+}
+
+.booking-header-banner h1 {
+  color: var(--color-warm-white);
+  margin-bottom: var(--spacing-xs);
+}
+
+.booking-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-lg);
+  align-items: start;
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Step Progress Indicator */
+.step-indicator {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-lg);
+  position: relative;
+}
+
+.step-indicator::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-sand);
+  z-index: 1;
+}
+
+.step-node {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+  flex-grow: 1;
+}
+
+.step-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-white);
+  border: 2px solid var(--color-sand-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  transition: all var(--transition-fast);
+}
+
+.step-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+}
+
+.step-node.active .step-dot {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-deep-navy);
+  box-shadow: 0 0 0 4px var(--color-gold-light);
+}
+
+.step-node.active .step-label {
+  color: var(--color-gold);
+  font-weight: 700;
+}
+
+.step-node.completed .step-dot {
+  background-color: var(--color-forest-green);
+  border-color: var(--color-forest-green);
+  color: var(--color-warm-white);
+}
+
+.step-node.completed .step-label {
+  color: var(--color-forest-green);
+}
+
+/* Wizard Steps Box */
+.wizard-step-panel {
+  display: none;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.wizard-step-panel.active {
+  display: block;
+  animation: fade-in 0.4s ease-out;
+}
+
+/* Live Pricing Summary Panel */
+.pricing-summary-card {
+  position: sticky;
+  top: 110px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.summary-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 8px;
+}
+
+.pricing-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-xs);
+  font-size: 0.95rem;
+  color: var(--color-text-dark);
+}
+
+.pricing-row.discount {
+  color: var(--color-emerald);
+  font-weight: 600;
+}
+
+.pricing-row.total {
+  border-top: 1px dashed var(--color-border);
+  padding-top: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
+  font-size: 1.3rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--color-forest-green);
+}
+
+/* Extras Services List */
+.extra-services-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.extra-service-card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.extra-service-card:hover {
+  border-color: var(--color-gold);
+  background-color: var(--color-gold-light);
+}
+
+.extra-service-card.selected {
+  border-color: var(--color-emerald);
+  background-color: rgba(22, 101, 52, 0.04);
+}
+
+.extra-service-card input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--color-emerald);
+}
+
+.extra-service-details {
+  flex-grow: 1;
+}
+
+.extra-service-details h4 {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.extra-service-details p {
+  font-size: 0.8rem;
+}
+
+.extra-service-price {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: var(--color-forest-green);
+}
+
+/* Room Choice grid */
+.room-choices-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.room-choice-card {
+  display: flex;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.room-choice-card:hover {
+  border-color: var(--color-gold);
+}
+
+.room-choice-card.selected {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px var(--color-gold-light);
+}
+
+.room-choice-img {
+  width: 200px;
+  height: 100%;
+  min-height: 150px;
+  object-fit: cover;
+}
+
+.room-choice-body {
+  padding: var(--spacing-sm) var(--spacing-md);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.room-choice-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.room-choice-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  margin-bottom: 4px;
+}
+
+.room-choice-rate {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--color-forest-green);
+  text-align: right;
+}
+
+.room-choice-rate span {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* Payment Section Styling */
+.payment-methods-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.payment-method-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm);
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.payment-method-card.selected {
+  border-color: var(--color-gold);
+  background-color: var(--color-gold-light);
+}
+
+/* Fullscreen Loader screen */
+.payment-processing-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(17, 24, 39, 0.9);
+  backdrop-filter: var(--glass-blur);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-warm-white);
+  text-align: center;
+}
+
+/* Digital Invoice Styling */
+.invoice-container {
+  background: var(--color-white);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  margin-top: var(--spacing-md);
+}
+
+.invoice-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--color-sand);
+  padding-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.invoice-billing-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--spacing-lg);
+}
+
+.invoice-table th, 
+.invoice-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.invoice-table th {
+  background-color: var(--color-warm-white);
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+/* Print Overrides */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .invoice-container, .invoice-container * {
+    visibility: visible;
+  }
+  .invoice-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border: none;
+    padding: 0;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Responsive booking grids */
+@media (max-width: 991px) {
+  .booking-layout {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .room-choice-card {
+    flex-direction: column;
+  }
+  .room-choice-img {
+    width: 100%;
+    height: 150px;
+  }
+}
